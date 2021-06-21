@@ -1,24 +1,36 @@
 {
-  "name": "drupal/gdpr_dumper",
+  "name": "druidfi/gdpr_dumper",
   "description": "A drop-in replacement for mysqldump that optionally sanitizes DB fields for better GDPR conformity.",
   "type": "drupal-module",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "authors": [
+    {
+      "name": "Druid.fi",
+      "email": "info@druid.fi"
+    },
     {
       "name": "Robin Ingelbrecht",
       "homepage": "https://github.com/robiningelbrecht",
       "role": "Maintainer"
     }
   ],
+  "require": {
+    "machbarmacher/gdpr-dump": "^1.0.0"
+  },
   "repositories": [
     {
-      "type": "composer",
-      "url": "https://packages.drupal.org/8"
+      "type": "package",
+      "package": {
+        "name": "machbarmacher/gdpr-dump",
+        "version": "1.0.0",
+        "source": {
+          "url": "https://github.com/machbarmacher/gdpr-dump.git",
+          "type": "git",
+          "reference": "master"
+        }
+      }
     }
-  ],
-  "require": {
-    "machbarmacher/gdpr-dump": "*"
-  }
+  ]
 }
