@@ -17,6 +17,7 @@
     }
   ],
   "require": {
-    "machbarmacher/gdpr-dump": "*"
+    "machbarmacher/gdpr-dump": "*",
+    "nette/finder": "^v2.0.0"
   }
 }
