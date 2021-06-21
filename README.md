@@ -27,7 +27,7 @@ be GDPR compliant YO!
 
 This module can be configured by editing the `gdpr_dumper.settings.yml` [file](https://github.com/robiningelbrecht/gdpr-dumper/blob/master/config/install/gdpr_dumper.settings.yml).
 
-[machbarmacher/gdpr-dump](https://github.com/machbarmacher/gdpr-dump) contains more info about 
+[druidfi/gdpr-mysqldump](https://github.com/druidfi/gdpr-mysqldump) contains more info about 
 the **gdpr-expressions** and **gdpr-replacement** options. 
 
 The provided yml file expects the same structure as explained in the readme above.
