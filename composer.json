@@ -17,20 +17,6 @@
     }
   ],
   "require": {
-    "machbarmacher/gdpr-dump": "^1.0.0"
-  },
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "machbarmacher/gdpr-dump",
-        "version": "1.0.0",
-        "source": {
-          "url": "https://github.com/machbarmacher/gdpr-dump.git",
-          "type": "git",
-          "reference": "master"
-        }
-      }
-    }
-  ]
+    "machbarmacher/gdpr-dump": "*"
+  }
 }
