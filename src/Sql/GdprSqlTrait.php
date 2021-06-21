@@ -2,7 +2,7 @@
 
 namespace Drupal\gdpr_dumper\Sql;
 
-use Drupal\Console\Core\Utils\DrupalFinder;
+use DrupalFinder\DrupalFinder;
 
 /**
  * Trait GdprSqlTrait
