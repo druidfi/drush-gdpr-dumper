@@ -17,7 +17,6 @@
     }
   ],
   "require": {
-    "machbarmacher/gdpr-dump": "*",
-    "nette/finder": "^v2.0.0"
+    "druidfi/gdpr-mysqldump": "dev-main"
   }
 }
