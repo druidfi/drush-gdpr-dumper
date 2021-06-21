@@ -1,5 +1,5 @@
 {
-  "name": "druidfi/gdpr_dumper",
+  "name": "druidfi/drush-gdpr-dumper",
   "description": "A drop-in replacement for mysqldump that optionally sanitizes DB fields for better GDPR conformity.",
   "type": "drupal-module",
   "license": "GPL-2.0-or-later",
