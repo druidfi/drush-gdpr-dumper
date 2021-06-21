@@ -2,7 +2,7 @@
 
 A drop-in replacement for drush sql-dump that optionally sanitizes DB fields for better GDPR conformity.
 
-It is based on the [machbarmacher/gdpr-dump](https://github.com/machbarmacher/gdpr-dump) library, 
+It is based on the [druidfi/gdpr-mysqldump](https://github.com/druidfi/gdpr-mysqldump) library, 
 and can in principle dump any database that PDO supports. 
 
 ## Drush
