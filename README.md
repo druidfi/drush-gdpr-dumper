@@ -39,7 +39,7 @@ be GDPR compliant YO!
 
 ## Configuration
 
-In $settings.php you can do the configuration like this:
+In settings.php you can do the override configuration like this:
 
 ```
 $config['gdpr_dumper.settings']['gdpr_replacements'] = [
