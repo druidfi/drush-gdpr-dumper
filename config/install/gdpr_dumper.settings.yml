@@ -4,7 +4,7 @@ gdpr_expressions:
 gdpr_replacements:
   users_field_data:
     name:
-      formatter: 'username'
+      formatter: 'userName'
     mail:
       formatter: 'email'
     pass:
