@@ -10,7 +10,7 @@ and can in principle dump any database that PDO supports.
 Require druidfi/gdpr-mysqldump with Composer:
 
 ```
-composer require druidfi/gdpr-mysqldump
+composer require druidfi/drush-gdpr-dumper
 ```
 
 Enable the module in Drupal UI or with Drush:
