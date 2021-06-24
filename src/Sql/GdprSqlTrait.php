@@ -23,7 +23,7 @@ trait GdprSqlTrait {
 
     if ($vendor = $drupal_finder->getVendorDir() && isset($this->driverOptions['dump_command'])) {
       // Replace default dump command with the GDPR compliant one.
-      $cmd = str_replace($this->driverOptions['dump_command'], $drupal_finder->getVendorDir() . '/bin/mysqldump', $cmd);
+      $cmd = str_replace($this->driverOptions['dump_command'], $vendor . '/bin/mysqldump', $cmd);
     }
 
     return $cmd;
