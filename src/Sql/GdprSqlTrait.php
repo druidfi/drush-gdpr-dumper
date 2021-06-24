@@ -20,10 +20,11 @@ trait GdprSqlTrait {
 
     $drupal_finder = new DrupalFinder();
     $drupal_finder->locateRoot(DRUPAL_ROOT);
+    $vendor_dir = $drupal_finder->getVendorDir();
 
-    if ($vendor = $drupal_finder->getVendorDir() && isset($this->driverOptions['dump_command'])) {
+    if ($vendor_dir && isset($this->driverOptions['dump_command'])) {
       // Replace default dump command with the GDPR compliant one.
-      $cmd = str_replace($this->driverOptions['dump_command'], $vendor . '/bin/mysqldump', $cmd);
+      $cmd = str_replace($this->driverOptions['dump_command'], $vendor_dir . '/bin/mysqldump', $cmd);
     }
 
     return $cmd;
