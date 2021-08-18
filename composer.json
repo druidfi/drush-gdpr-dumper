@@ -21,7 +21,7 @@
     }
   ],
   "require": {
-    "druidfi/gdpr-mysqldump": "dev-main"
+    "druidfi/gdpr-mysqldump": "^1.0.0"
   },
   "require-dev": {
     "drush/drush": "^10.5"
