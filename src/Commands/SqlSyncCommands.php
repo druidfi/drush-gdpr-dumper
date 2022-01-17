@@ -11,14 +11,6 @@ use Drush\Commands\sql\SqlSyncCommands as SqlSyncCommandsBase;
 class SqlSyncCommands extends SqlSyncCommandsBase
 {
     /**
-     * @inheritDoc
-     */
-    public function sqlsync($source, $target, $options = ['no-dump' => false, 'no-sync' => false, 'runner' => self::REQ, 'create-db' => false, 'db-su' => self::REQ, 'db-su-pw' => self::REQ, 'target-dump' => self::REQ, 'source-dump' => self::OPT, 'extra-dump' => self::REQ]): void
-    {
-        parent::sqlsync($source, $target, $options);
-    }
-
-    /**
      * Perform sql-dump on source unless told otherwise.
      *
      * @param $options

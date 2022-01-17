@@ -22,9 +22,13 @@
   ],
   "require": {
     "php": "^7.4 || ^8.0",
-    "druidfi/gdpr-mysqldump": "^1.0.0"
+    "druidfi/gdpr-mysqldump": "^1.0.0",
+    "drush/drush": "^11.0",
+    "drupal/core-recommended": "^9"
   },
-  "require-dev": {
-    "drush/drush": "^11.0"
+  "config": {
+    "allow-plugins": {
+      "cweagans/composer-patches": true
+    }
   }
 }
