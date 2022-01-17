@@ -8,32 +8,24 @@ use Symfony\Contracts\EventDispatcher\Event;
  * Class GdprExpressionsEvent
  * @package Drupal\gdpr_dumper\Event
  */
-class GdprExpressionsEvent extends Event {
+class GdprExpressionsEvent extends Event
+{
+    protected array $expressions;
 
-  protected array $expressions;
+    public function __construct($expressions)
+    {
+        $this->expressions = $expressions;
+    }
 
-  /**
-   * GdprExpressionsEvent constructor.
-   * @param $expressions
-   */
-  public function __construct($expressions) {
-    $this->expressions = $expressions;
-  }
+    public function getExpressions(): array
+    {
+        return $this->expressions;
+    }
 
-  /**
-   * @return array
-   */
-  public function getExpressions() {
-    return $this->expressions;
-  }
-
-  /**
-   * @param array $expressions
-   * @return $this
-   */
-  public function setExpressions(array $expressions) {
-    $this->expressions = $expressions;
-    return $this;
-  }
+    public function setExpressions(array $expressions): GdprExpressionsEvent
+    {
+        $this->expressions = $expressions;
+        return $this;
+    }
 
 }
