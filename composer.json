@@ -21,9 +21,10 @@
     }
   ],
   "require": {
+    "php": "^7.4 || ^8.0",
     "druidfi/gdpr-mysqldump": "^1.0.0"
   },
   "require-dev": {
-    "drush/drush": "^10.5"
+    "drush/drush": "^11.0"
   }
 }

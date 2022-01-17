@@ -2,6 +2,7 @@
 
 namespace Drupal\gdpr_dumper\Commands;
 
+use Consolidation\OutputFormatters\StructuredData\PropertyList;
 use Drupal\gdpr_dumper\Sql\GdprSqlBase;
 use Drush\Commands\sql\SqlCommands as SqlCommandsBase;
 
@@ -38,19 +39,21 @@ class SqlCommands extends SqlCommandsBase {
    * @notes
    *   createdb is used by sql-sync, since including the DROP TABLE statements interfere with the import when the database is created.
    */
-  public function dump($options = [
-    'result-file' => self::REQ,
-    'create-db' => FALSE,
-    'data-only' => FALSE,
-    'ordered-dump' => FALSE,
-    'gzip' => FALSE,
-    'extra' => self::REQ,
-    'extra-dump' => self::REQ
-  ]) {
-    // Create new dump of DB, GDPR compliant.
-    $sql = GdprSqlBase::create($options);
-    if ($sql->dump() === false) {
-      throw new \Exception('Unable to dump database. Rerun with --debug to see any error message.');
-    }
+    public function dump($options = ['result-file' => self::REQ, 'create-db' => false, 'data-only' => false, 'ordered-dump' => false, 'gzip' => false, 'extra' => self::REQ, 'extra-dump' => self::REQ, 'format' => 'null']): PropertyList
+    {
+        // Create new dump of DB, GDPR compliant.
+        $sql = GdprSqlBase::create($options);
+        $return = $sql->dump();
+
+        if ($return === false) {
+            throw new \Exception('Unable to dump database. Rerun with --debug to see any error message.');
+        }
+
+        // SqlBase::dump() returns null if 'result-file' option is empty.
+        if ($return) {
+            $this->logger()->success(dt('Database dump saved to !path', ['!path' => $return]));
+        }
+
+        return new PropertyList(['path' => $return]);
   }
 }
