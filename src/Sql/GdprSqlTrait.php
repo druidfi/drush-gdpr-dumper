@@ -8,39 +8,34 @@ use DrupalFinder\DrupalFinder;
  * Trait GdprSqlTrait
  * @package Drupal\gdpr_dumper\Sql
  */
-trait GdprSqlTrait {
+trait GdprSqlTrait
+{
+    protected array $driverOptions;
 
-  protected array $driverOptions;
+    public function dumpCmd($table_selection): string
+    {
+        $cmd = parent::dumpCmd($table_selection);
 
-  /**
-   * {@inheritdoc}
-   */
-  public function dumpCmd($table_selection): string {
-    $cmd = parent::dumpCmd($table_selection);
+        $drupal_finder = new DrupalFinder();
+        $drupal_finder->locateRoot(DRUPAL_ROOT);
+        $vendor_dir = $drupal_finder->getVendorDir();
 
-    $drupal_finder = new DrupalFinder();
-    $drupal_finder->locateRoot(DRUPAL_ROOT);
-    $vendor_dir = $drupal_finder->getVendorDir();
+        if ($vendor_dir && isset($this->driverOptions['dump_command'])) {
+            // Replace default dump command with the GDPR compliant one.
+            $cmd = str_replace($this->driverOptions['dump_command'], $vendor_dir . '/bin/mysqldump', $cmd);
+        }
 
-    if ($vendor_dir && isset($this->driverOptions['dump_command'])) {
-      // Replace default dump command with the GDPR compliant one.
-      $cmd = str_replace($this->driverOptions['dump_command'], $vendor_dir . '/bin/mysqldump', $cmd);
+        return $cmd;
     }
 
-    return $cmd;
-  }
+    public function getDriverOptions(): array
+    {
+        return $this->driverOptions;
+    }
 
-  /**
-   * @return array
-   */
-  public function getDriverOptions(): array {
-    return $this->driverOptions;
-  }
+    public function setDriverOptions(array $options)
+    {
+        $this->driverOptions = $options;
+    }
 
-  /**
-   * @param array $options
-   */
-  public function setDriverOptions(array $options) {
-    $this->driverOptions = $options;
-  }
 }
