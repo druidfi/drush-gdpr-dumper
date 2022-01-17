@@ -10,12 +10,12 @@ use DrupalFinder\DrupalFinder;
  */
 trait GdprSqlTrait {
 
-  protected $driverOptions;
+  protected array $driverOptions;
 
   /**
    * {@inheritdoc}
    */
-  public function dumpCmd($table_selection) {
+  public function dumpCmd($table_selection): string {
     $cmd = parent::dumpCmd($table_selection);
 
     $drupal_finder = new DrupalFinder();
@@ -33,7 +33,7 @@ trait GdprSqlTrait {
   /**
    * @return array
    */
-  public function getDriverOptions() {
+  public function getDriverOptions(): array {
     return $this->driverOptions;
   }
 

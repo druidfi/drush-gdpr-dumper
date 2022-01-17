@@ -20,7 +20,7 @@ class GdprSqlBase extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public static function create($options = []) {
+  public static function create(array $options = []): SqlBase {
     // Set defaults in the unfortunate event that caller doesn't provide values.
     $options += [
       'database' => 'default',
@@ -52,11 +52,8 @@ class GdprSqlBase extends SqlBase {
     }
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public static function getInstance($dbSpec, $options, EventDispatcherInterface $event_dispatcher = NULL) {
-    $driver = $dbSpec['driver'];
+  public static function getInstance($db_spec, $options, EventDispatcherInterface $event_dispatcher = NULL): SqlBase {
+    $driver = $db_spec['driver'];
     $className = 'Drupal\gdpr_dumper\Sql\GdprSql' . ucfirst($driver);
     // Fetch module settings.
     $config = \Drupal::config('gdpr_dumper.settings');
@@ -82,7 +79,7 @@ class GdprSqlBase extends SqlBase {
       }
     }
 
-    $instance = new $className($dbSpec, $options);
+    $instance = new $className($db_spec, $options);
     $driver_options = isset($config->get('drivers')[$driver]) ? $config->get('drivers')[$driver] : [];
     // Inject config
     $instance->setConfig(Drush::config());
