@@ -64,7 +64,7 @@ class GdprSqlBase extends SqlBase
         if (empty($options['extra-dump']) || strpos($options['extra-dump'], '--gdpr-expressions') === false) {
             // Dispatch event so the expressions can be altered.
             $event = new GdprExpressionsEvent($config->get('gdpr_expressions'));
-            $event_dispatcher->dispatch(GdprDumperEvents::GDPR_EXPRESSIONS, $event);
+            $event_dispatcher->dispatch($event, GdprDumperEvents::GDPR_EXPRESSIONS);
             // Add the configured GDPR expressions to the command.
             if ($expressions = Json::encode($event->getExpressions())){
                 $options['extra-dump'] .= " --gdpr-expressions='$expressions'";
@@ -74,7 +74,7 @@ class GdprSqlBase extends SqlBase
         if (empty($options['extra-dump']) || strpos($options['extra-dump'], '--gdpr-replacements') === false) {
             // Dispatch event so the replacements can be altered.
             $event = new GdprReplacementsEvent($config->get('gdpr_replacements'));
-            $event_dispatcher->dispatch(GdprDumperEvents::GDPR_REPLACEMENTS, $event);
+            $event_dispatcher->dispatch($event, GdprDumperEvents::GDPR_REPLACEMENTS);
             // Add the configured GDPR replacements to the command.
             if ($replacements = Json::encode($event->getReplacements())){
                 $options['extra-dump'] .= " --gdpr-replacements='$replacements'";
