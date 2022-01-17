@@ -8,8 +8,8 @@ use Drush\Sql\SqlMysql;
  * Class GdprSqlMysql
  * @package Drupal\gdpr_dumper\Commands
  */
-class GdprSqlMysql extends SqlMysql {
-
+class GdprSqlMysql extends SqlMysql
+{
   use GdprSqlTrait;
 
 }
