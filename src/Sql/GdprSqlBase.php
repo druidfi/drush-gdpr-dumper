@@ -27,9 +27,9 @@ class GdprSqlBase extends SqlBase
         $options += [
             'database' => 'default',
             'target' => 'default',
-            'db-url' => NULL,
-            'databases' => NULL,
-            'db-prefix' => NULL,
+            'db-url' => null,
+            'databases' => null,
+            'db-prefix' => null,
         ];
         $database = $options['database'];
         $target = $options['target'];
@@ -38,7 +38,7 @@ class GdprSqlBase extends SqlBase
         if ($url = $options['db-url']) {
             $url = is_array($url) ? $url[$database] : $url;
             $db_spec = self::dbSpecFromDbUrl($url);
-            $db_spec['db_prefix'] = $options['db-prefix'];
+            $db_spec['prefix'] = $options['db-prefix'];
             return self::getInstance($db_spec, $options, $event_dispatcher);
         }
         elseif (($databases = $options['databases']) && (array_key_exists($database, $databases)) && (array_key_exists($target, $databases[$database]))) {
@@ -54,25 +54,24 @@ class GdprSqlBase extends SqlBase
         }
     }
 
-    public static function getInstance($db_spec, $options, EventDispatcherInterface $event_dispatcher = NULL): SqlBase
+    public static function getInstance($db_spec, $options, EventDispatcherInterface $event_dispatcher = null): SqlBase
     {
         $driver = $db_spec['driver'];
         $className = 'Drupal\gdpr_dumper\Sql\GdprSql' . ucfirst($driver);
         // Fetch module settings.
         $config = \Drupal::config('gdpr_dumper.settings');
 
-        if (empty($options['extra-dump']) || strpos($options['extra-dump'], '--gdpr-expressions') === FALSE) {
-
+        if (empty($options['extra-dump']) || strpos($options['extra-dump'], '--gdpr-expressions') === false) {
             // Dispatch event so the expressions can be altered.
             $event = new GdprExpressionsEvent($config->get('gdpr_expressions'));
             $event_dispatcher->dispatch(GdprDumperEvents::GDPR_EXPRESSIONS, $event);
             // Add the configured GDPR expressions to the command.
-            if($expressions = Json::encode($event->getExpressions())){
+            if ($expressions = Json::encode($event->getExpressions())){
                 $options['extra-dump'] .= " --gdpr-expressions='$expressions'";
             }
         }
 
-        if (empty($options['extra-dump']) || strpos($options['extra-dump'], '--gdpr-replacements') === FALSE) {
+        if (empty($options['extra-dump']) || strpos($options['extra-dump'], '--gdpr-replacements') === false) {
             // Dispatch event so the replacements can be altered.
             $event = new GdprReplacementsEvent($config->get('gdpr_replacements'));
             $event_dispatcher->dispatch(GdprDumperEvents::GDPR_REPLACEMENTS, $event);
