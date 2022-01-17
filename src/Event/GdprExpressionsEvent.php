@@ -2,7 +2,7 @@
 
 namespace Drupal\gdpr_dumper\Event;
 
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * Class GdprExpressionsEvent
@@ -10,11 +10,7 @@ use Symfony\Component\EventDispatcher\Event;
  */
 class GdprExpressionsEvent extends Event {
 
-  /**
-   * @var array
-   */
-  protected $expressions;
-
+  protected array $expressions;
 
   /**
    * GdprExpressionsEvent constructor.
