@@ -22,8 +22,8 @@
   ],
   "require": {
     "php": "^7.4 || ^8.0",
-    "druidfi/gdpr-mysqldump": "^1.0.3",
-    "drush/drush": "^11.0",
+    "druidfi/gdpr-mysqldump": "^1.2.0",
+    "drush/drush": "^11.1",
     "drupal/core-recommended": "^9"
   },
   "config": {
