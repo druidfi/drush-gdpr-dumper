@@ -8,12 +8,12 @@
   "authors": [
     {
       "name": "Druid.fi",
-      "email": "info@druid.fi"
+      "homepage": "https://github.com/druidfi",
+      "role": "Maintainer"
     },
     {
       "name": "Robin Ingelbrecht",
-      "homepage": "https://github.com/robiningelbrecht",
-      "role": "Maintainer"
+      "homepage": "https://github.com/robiningelbrecht"
     },
     {
       "name": "Marko Korhonen",
