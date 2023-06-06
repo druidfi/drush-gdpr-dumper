@@ -9,14 +9,3 @@ gdpr_replacements:
       formatter: 'email'
     pass:
       formatter: 'clear'
-drivers:
-  mysql:
-    dump_command: 'mysqldump'
-  oracle:
-    dump_command: 'mysqldump'
-  pqsql:
-    dump_command: 'pg_dump'
-  sqlite:
-    dump_command: 'dump'
-  sqlsrv:
-    dump_command: 'mysqldump'

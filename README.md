@@ -25,17 +25,17 @@ If you want to create a sql dump on live servers for local purposes (as a develo
 you should use following command:
 
 ```shell
-drush sql-dump-gdpr > dump.sql
+drush sql:dump-gdpr > dump.sql
 ```
 
 instead of 
 
 ```shell
-drush sql-dump > dump.sql
+drush sql:dump > dump.sql
 ```
 
 `drush sql-dump-gdpr` will automatically strip all GDPR related data from the sql dump to help you 
-be GDPR compliant YO!
+be GDPR-compliant YO!
 
 ## Configuration
 
