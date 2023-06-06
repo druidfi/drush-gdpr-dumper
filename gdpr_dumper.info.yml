@@ -1,4 +1,4 @@
 name: GDPR dumper
 description: 'A drop-in replacement for mysqldump that optionally sanitizes DB fields for better GDPR conformity.'
 type: module
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10
