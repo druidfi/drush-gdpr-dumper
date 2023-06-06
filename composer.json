@@ -23,7 +23,7 @@
   "require": {
     "php": "^7.4 || ^8.0",
     "druidfi/gdpr-mysqldump": "^1.2.2",
-    "drush/drush": "^11.4",
+    "drush/drush": "^11.4 || ^12.0",
     "drupal/core-recommended": "^9 || ^10"
   },
   "config": {
