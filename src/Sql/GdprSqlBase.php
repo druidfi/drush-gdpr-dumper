@@ -20,7 +20,7 @@ class GdprSqlBase extends SqlBase
     /**
      * {@inheritdoc}
      */
-    public static function create(array $options = []): ?self
+    public static function create(array $options = []): ?GdprSqlMysql
     {
         // Set defaults in the unfortunate event that caller doesn't provide values.
         $options += [
@@ -54,7 +54,7 @@ class GdprSqlBase extends SqlBase
         }
     }
 
-    public static function getInstance($db_spec, $options, EventDispatcherInterface $event_dispatcher = null): ?self
+    public static function getInstance($db_spec, $options, EventDispatcherInterface $event_dispatcher = null): ?GdprSqlMysql
     {
         $driver = $db_spec['driver'];
         $class_name = 'Drupal\gdpr_dumper\Sql\GdprSql' . ucfirst($driver);
