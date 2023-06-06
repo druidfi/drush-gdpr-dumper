@@ -20,7 +20,7 @@ class GdprSqlBase extends SqlBase
     /**
      * {@inheritdoc}
      */
-    public static function create(array $options = []): ?SqlBase
+    public static function create(array $options = []): ?self
     {
         // Set defaults in the unfortunate event that caller doesn't provide values.
         $options += [

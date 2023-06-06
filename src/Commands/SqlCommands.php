@@ -21,7 +21,7 @@ final class SqlCommands extends DrushCommands implements SiteAliasManagerAwareIn
     const DUMP_GDPR = 'sql:dump-gdpr';
 
     /**
-     * Exports the Drupal DB as SQL using mysqldump or equivalent.
+     * Exports the Drupal DB as SQL using druidfi/gdpr-mysqldump.
      *
      * --createdb is used by sql-sync, since including the DROP TABLE statements interferes with the import when the database is created.
      *
