@@ -15,7 +15,7 @@ use Drush\Exec\ExecTrait;
  * Class SQlCommands
  * @package Drupal\gdpr_dumper\Commands
  */
-class SqlCommands extends DrushCommands implements StdinAwareInterface
+final class SqlCommands extends DrushCommands implements StdinAwareInterface
 {
     use ExecTrait;
     use StdinAwareTrait;
