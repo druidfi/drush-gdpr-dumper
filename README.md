@@ -9,13 +9,13 @@ and can in principle dump any database that PDO supports.
 
 Require druidfi/gdpr-mysqldump with Composer:
 
-```
+```console
 composer require druidfi/drush-gdpr-dumper
 ```
 
 Enable the module in Drupal UI or with Drush:
 
-```
+```console
 drush en gdpr_dumper
 ```
 
@@ -24,13 +24,13 @@ drush en gdpr_dumper
 If you want to create a sql dump on live servers for local purposes (as a developer, themer, ...), 
 you should use following command:
 
-```
+```console
 drush sql-dump-gdpr > dump.sql
 ```
 
 instead of 
 
-```
+```console
 drush sql-dump > dump.sql
 ```
 
@@ -41,7 +41,7 @@ be GDPR compliant YO!
 
 In settings.php you can do the override configuration like this:
 
-```
+```php
 $config['gdpr_dumper.settings']['gdpr_replacements'] = [
   'users_field_data' => [ // Table
     'name' => [ // Field
