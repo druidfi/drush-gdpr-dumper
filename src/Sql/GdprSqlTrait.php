@@ -33,7 +33,7 @@ trait GdprSqlTrait
         return $this->driverOptions;
     }
 
-    public function setDriverOptions(array $options)
+    public function setDriverOptions(array $options): void
     {
         $this->driverOptions = $options;
     }
