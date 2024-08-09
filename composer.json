@@ -30,5 +30,8 @@
     "allow-plugins": {
       "cweagans/composer-patches": true
     }
+  },
+  "require-dev": {
+    "webflo/drupal-finder": "^1.3"
   }
 }

@@ -2,7 +2,7 @@
 
 namespace Drupal\gdpr_dumper\Sql;
 
-use DrupalFinder\DrupalFinder;
+use DrupalFinder\DrupalFinderComposerRuntime;
 
 /**
  * Trait GdprSqlTrait
@@ -16,12 +16,12 @@ trait GdprSqlTrait
     {
         $cmd = parent::dumpCmd($table_selection);
 
-        $drupal_finder = new DrupalFinder();
-        $drupal_finder->locateRoot(DRUPAL_ROOT);
+        $drupal_finder = new DrupalFinderComposerRuntime();
+        $drupal_finder->getDrupalRoot();
         $vendor_dir = $drupal_finder->getVendorDir();
 
         if ($vendor_dir && isset($this->driverOptions['dump_command'])) {
-            // Replace default dump command with the GDPR compliant one.
+            // Replace default dump command with the GDPR-compliant one.
             $cmd = str_replace($this->driverOptions['dump_command'], $vendor_dir . '/bin/mysqldump', $cmd);
         }
 
