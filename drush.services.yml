@@ -3,7 +3,3 @@ services:
     class: Drupal\gdpr_dumper\Commands\SqlCommands
     tags:
       -  { name: drush.command }
-  gdpr_dumper.sync_command:
-    class: Drupal\gdpr_dumper\Commands\SqlSyncCommands
-    tags:
-      -  { name: drush.command }
