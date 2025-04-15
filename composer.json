@@ -21,8 +21,8 @@
     }
   ],
   "require": {
-    "php": "^8.1",
-    "druidfi/gdpr-mysqldump": "^1.2.6",
+    "php": "^8.2",
+    "druidfi/gdpr-mysqldump": "^2.0",
     "drush/drush": "^13",
     "drupal/core-recommended": "^10.3 || ^11",
     "webflo/drupal-finder": "^1.3.0"
@@ -31,8 +31,5 @@
     "allow-plugins": {
       "cweagans/composer-patches": true
     }
-  },
-  "require-dev": {
-    "webflo/drupal-finder": "^1.3"
   }
 }
